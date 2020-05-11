@@ -1,4 +1,15 @@
-# App Functionalities
+# Apollo Server and Client App
+
+## Frontend
+
+1. React
+2. Apollo Client
+
+## Backend
+
+1. Apollo server
+
+## App Functionalities
 
 1. Fetch a list of all upcoming rocket launches
 2. Fetch a specific launch by its ID
