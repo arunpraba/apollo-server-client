@@ -31,6 +31,7 @@ export const GET_LAUNCHES = gql`
 export const GET_LAUNCH_DETAILS = gql`
   query LaunchDetails($launchId: ID!) {
     launch(id: $launchId) {
+      isInCart @client
       ...LaunchTile
     }
   }
@@ -48,4 +49,16 @@ export const GET_MY_TRIPS = gql`
     }
   }
   ${LAUNCH_TILE_DATA}
+`
+
+export const IS_LOGGED_IN = gql`
+  query IsUserLoggedIn {
+    isLoggedIn @client
+  }
+`
+
+export const GET_CART_ITEMS = gql`
+  query GetCartItems {
+    cartItems @client
+  }
 `

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
-import Navbar from './Navbar'
 
 const center = {
   top: '50%',
@@ -24,7 +23,6 @@ const Layout = ({ loading, error, children }) => {
           </h1>
         </div>
       )}
-      <Navbar />
       <div className="container mx-auto">{children}</div>
     </div>
   )
