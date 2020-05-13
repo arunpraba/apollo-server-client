@@ -7,7 +7,8 @@ import { HttpLink } from 'apollo-link-http'
 import { ApolloProvider } from '@apollo/react-hooks'
 import './index.css'
 import App from './App'
-import { typeDefs, resolvers } from './apollo/resolvers'
+import { typeDefs } from './apollo/typeDefs'
+import { resolvers } from './apollo/resolvers'
 
 const cache = new InMemoryCache()
 const link = new HttpLink({

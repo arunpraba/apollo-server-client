@@ -1,15 +1,22 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import ActionButton from './ActionButton'
 
-const LaunchItem = ({ launch }) => {
-  const { id, isBooked, mission, rocket } = launch
+const LaunchItem = ({ launch, list }) => {
+  const { id, isBooked, mission, rocket, isInCart } = launch
   const history = useHistory()
+
+  const handleClick = () => {
+    if (list) {
+      history.push(`/${id}`)
+    }
+  }
 
   return (
     <div className="col mb-4">
       <div
         className="card shadow text-center p-2 pointer"
-        onClick={() => history.push(`/${id}`)}
+        onClick={handleClick}
       >
         <img
           className="card-img-top mx-auto"
@@ -22,10 +29,15 @@ const LaunchItem = ({ launch }) => {
           <div>
             <span className="text-secondary">Booked Status </span>
             <span className={`text-${isBooked ? 'danger' : 'success'} h5`}>
-              {isBooked ? 'Closed' : 'Open'}
+              {isBooked ? 'Booked' : 'Open'}
             </span>
           </div>
         </div>
+        {!list && (
+          <div className="card-footer border-0 bg-white">
+            <ActionButton isBooked={isBooked} id={id} isInCart={isInCart} />
+          </div>
+        )}
       </div>
     </div>
   )

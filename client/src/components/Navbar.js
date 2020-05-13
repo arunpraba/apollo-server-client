@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { useApolloClient } from '@apollo/react-hooks'
 
 const List = ({ name, ...rest }) => (
   <li className="nav-item mr-3">
@@ -8,15 +9,17 @@ const List = ({ name, ...rest }) => (
     </NavLink>
   </li>
 )
+
 const Logout = () => {
-  const history = useHistory()
+  const client = useApolloClient()
+
   return (
     <li className="nav-item mr-3">
       <button
         className="nav-link text-white px-3 btn"
         onClick={() => {
-          localStorage.setItem('token', '')
-          history.push('/')
+          client.writeData({ data: { isLoggedIn: false } })
+          localStorage.clear()
         }}
       >
         Logout

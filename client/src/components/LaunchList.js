@@ -22,8 +22,8 @@ const LaunchList = () => {
           launches: {
             ...fetchMoreResult.launches,
             launches: [
-              ...fetchMoreResult.launches.launches,
               ...prev.launches.launches,
+              ...fetchMoreResult.launches.launches,
             ],
           },
         }
@@ -36,19 +36,22 @@ const LaunchList = () => {
       {data && (
         <Fragment>
           <Header>Upcoming Launches</Header>
-          {isList && (
-            <nav className="navbar justify-content-center">
-              <button type="button" className="btn btn-info" onClick={loadMore}>
-                Load More
-              </button>
-            </nav>
-          )}
+
           <div className="row row-cols-1 row-cols-md-3 mt-4">
             {isList &&
               data.launches.launches.map((launch) => (
-                <LaunchItem key={launch.id} launch={launch} />
+                <LaunchItem key={launch.id} launch={launch} list />
               ))}
           </div>
+          {isList && (
+            <button
+              type="button"
+              className="btn btn-info btn-block"
+              onClick={loadMore}
+            >
+              Load More
+            </button>
+          )}
         </Fragment>
       )}
     </Layout>
