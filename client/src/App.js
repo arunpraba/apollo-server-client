@@ -12,6 +12,7 @@ import './App.css'
 
 function App() {
   const { data } = useQuery(IS_LOGGED_IN)
+
   if (data && data.isLoggedIn) {
     return (
       <>

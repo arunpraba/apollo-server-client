@@ -15,6 +15,13 @@ const link = new HttpLink({
   uri: 'http://localhost:4000/',
 })
 
+cache.writeData({
+  data: {
+    isLoggedIn: !!localStorage.getItem('token'),
+    cartItems: [],
+  },
+})
+
 const client = new ApolloClient({
   cache,
   link,

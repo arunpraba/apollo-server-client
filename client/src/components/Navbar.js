@@ -13,7 +13,7 @@ const Logout = () => {
   return (
     <li className="nav-item mr-3">
       <button
-        className="nav-link text-white px-3"
+        className="nav-link text-white px-3 btn"
         onClick={() => {
           localStorage.setItem('token', '')
           history.push('/')
@@ -28,7 +28,7 @@ const Logout = () => {
 const Navbar = () => {
   const token = localStorage.getItem('token')
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
       <ul className="navbar-nav flex-row">
         <List to="/" exact name="Home" />
         <List to="/me" exact name="Me" />

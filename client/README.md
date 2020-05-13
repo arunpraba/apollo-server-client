@@ -72,3 +72,15 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 store --> cache
 reducer --> resolvers
 actions --> queries & mutations
+
+Redux
+Sharing State between multiple components
+Memoizing
+Make Api Call
+
+Apollo Client
+
+1. Graphql
+2. Client side Local state
+3.
+4.

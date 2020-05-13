@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useMutation, useApolloClient } from '@apollo/react-hooks'
 import Layout from './Layout'
 import { LOGIN_USER } from '../apollo/mutations'
-import { useState } from 'react'
 import Header from './Header'
 
 const LoginForm = ({ login }) => {
@@ -27,6 +26,9 @@ const LoginForm = ({ login }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <small className="form-text text-muted">
+          Use any email example@example.com
+        </small>
       </div>
       <button type="submit" className="btn btn-primary">
         Login
